@@ -1,0 +1,65 @@
+//
+//  MvvmRac.pch
+//  MVVM+RAC
+//
+//  Created by 许须耀 on 2019/11/12.
+//  Copyright © 2019 许须耀. All rights reserved.
+//
+
+#ifndef MvvmRac_pch
+#define MvvmRac_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//屏幕尺寸
+#define kMainScreenW [UIScreen mainScreen].bounds.size.width
+#define kMainScreenH [UIScreen mainScreen].bounds.size.height
+#define kMainScreenBounds [UIScreen mainScreen].bounds
+
+#define Image(fileName) [UIImage imageNamed:fileName]
+
+//判断是否是ipad
+#define kisPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+//判断iPhone4系列
+#define kiPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) && !kisPad : NO)
+//判断iPhone5系列
+#define kiPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) && !kisPad : NO)
+//判断iPhone6系列
+#define kiPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) && !kisPad : NO)
+//判断iphone6+系列
+#define kiPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) && !kisPad : NO)
+//判断iPhoneX
+#define IS_IPHONE_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) && !kisPad : NO)
+//判断iPHoneXr
+#define IS_IPHONE_Xr ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) && !kisPad : NO)
+//判断iPhoneXs
+#define IS_IPHONE_Xs ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) && !kisPad : NO)
+//判断iPhoneXs Max
+#define IS_IPHONE_Xs_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) && !kisPad : NO)
+
+//iPhoneX系列
+#define Height_StatusBar ((IS_IPHONE_X==YES || IS_IPHONE_Xr ==YES || IS_IPHONE_Xs== YES || IS_IPHONE_Xs_Max== YES) ? 44.0 : 20.0)
+#define Height_NavBar ((IS_IPHONE_X==YES || IS_IPHONE_Xr ==YES || IS_IPHONE_Xs== YES || IS_IPHONE_Xs_Max== YES) ? 88.0 : 64.0)
+#define Height_TabBar ((IS_IPHONE_X==YES || IS_IPHONE_Xr ==YES || IS_IPHONE_Xs== YES || IS_IPHONE_Xs_Max== YES) ? 83.0 : 49.0)
+
+#import <ReactiveObjC/ReactiveObjC.h>
+#import <AFNetworking/AFNetworking.h>
+#import <SDAutoLayout/SDAutoLayout.h>
+#import <MJRefresh/MJRefresh.h>
+
+#import <MJExtension/MJExtension.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <Masonry/Masonry.h>
+#import <Toast/Toast.h>
+
+#import "BaseTableView.h"//tableview简单封装
+#import "RefreshUtil.h"//MJRefresh二次封装
+#import "AFSessionUtil.h"
+
+#import "BaseViewController.h"//baseController
+#import "BaseNaviController.h"//baseNavi
+#import "BaseTabbarController.h"//baseTabbar
+#import "LoginController.h"
+
+#endif /* MvvmRac_pch */
